@@ -9,19 +9,21 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <div class="mainSection">
+    <div class="wrapper indexPage">
+        <div class="mainSection">
 
-        <div class="logoContainer">
-            <img src="images/sembuz-logo-800x500.jpg" alt="" width="400">
+            <div class="logoContainer">
+                <img src="images/sembuz-logo-800x500.jpg" alt="" width="400">
+            </div>
+
+            <div class="searchContainer">
+                <form action="search.php" method="GET">
+                    <input type="text" class="searchBox" name="term">
+                    <input type="submit" class="searchButton" value="Search">
+                </form>
+            </div>
+
         </div>
-
-        <div class="searchContainer">
-            <form action="search.php" method="GET">
-                <input type="text" class="searchBox" name="term">
-                <input type="submit" class="searchButton" value="Search">
-            </form>
-        </div>
-
-    </div>    
+    </div> 
 </body>
 </html>
