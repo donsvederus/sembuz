@@ -8,7 +8,6 @@
     <link rel="shortcut icon" type="image" href="images/favicon.png"/>
 </head>
 <body>
-
     <div class="mainSection">
 
         <div class="logoContainer">
@@ -16,11 +15,12 @@
         </div>
 
         <div class="searchContainer">
-            <input type="text" class="searchBox" name="term">
-            <input type="submit" class="searchButton" value="Search">
+            <form action="search.php" method="GET">
+                <input type="text" class="searchBox" name="term">
+                <input type="submit" class="searchButton" value="Search">
+            </form>
         </div>
 
-    </div>
-    
+    </div>    
 </body>
 </html>
