@@ -13,7 +13,7 @@
         <div class="mainSection">
 
             <div class="logoContainer">
-                <img src="images/sembuz-logo-800x500.jpg" alt="" width="400">
+                <img src="images/sembuz-logo-800x500.jpg" alt="Logo">
             </div>
 
             <div class="searchContainer">
