@@ -22,12 +22,21 @@
                 </div>
 
                 <div class="searchContainer">
+
                     <form action="search.php" method="GET">
-                        <input type="text" class="searchBox" name="term">
-                        <button class="">
-                            Search
-                        </button>
+
+                        <div class="searchBarContainer">
+
+                            <input type="text" class="searchBox" name="term">
+                            <button>
+                                Search
+                            </button>
+
+                        </div>
+
                     </form>
+                        
+
                 </div>
 
             </div>
