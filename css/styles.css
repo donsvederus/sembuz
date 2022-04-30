@@ -62,7 +62,7 @@ html, body {
     width: 70%;
     max-width: 630px;
     color: #000;
-    }
+}
 
 .mainSection .logoContainer {
     width: 300px;
@@ -71,4 +71,28 @@ html, body {
 
 .logoContainer img {
     width: 100%;
+}
+
+.header {
+    background-color: #fafafa;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.wrapper .headerContent {
+    display: flex;
+    align-items: center;
+}
+
+.headerContent .searchContainer {
+    flex: 1;
+}
+
+.headerContent .searchContainer form {
+    margin: 15px 0 28px 0;
+}
+
+.headerContent .logoContainer {
+    width: 150px;
+    padding: 5px 20px;
+    box-sizing: border-box;
 }

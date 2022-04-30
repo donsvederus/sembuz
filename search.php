@@ -14,18 +14,22 @@
         <div class="header">
 
             <div class="headerContent">
-                <a href="index.php">
-                <img src="images/sembuz-logo-800x500.jpg" alt="Logo">
-                </a>
-            </div>
 
-            <div class="searchContainer">
-                <form action="search.php" method="GET">
-                    <input type="text" class="searchBox" name="term">
-                    <button class="">
-                        Search
-                    </button>
-                </form>
+                <div class="logoContainer">
+                    <a href="index.php">
+                        <img src="images/sembuz-logo-800x500.jpg" alt="Logo">
+                    </a>
+                </div>
+
+                <div class="searchContainer">
+                    <form action="search.php" method="GET">
+                        <input type="text" class="searchBox" name="term">
+                        <button class="">
+                            Search
+                        </button>
+                    </form>
+                </div>
+
             </div>
 
         </div>
