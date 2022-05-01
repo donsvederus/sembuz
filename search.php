@@ -1,9 +1,9 @@
 <?php
+include("config.php");
 
     $term = isset($_GET["term"]) ? $_GET["term"] : exit("You must enter a search term.");
 
     $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
-
 
 ?>
 
@@ -29,7 +29,7 @@
                     <a href="index.php">
                         <img src="images/sembuz-logo-800x500.jpg" alt="Logo">
                     </a>
-                    
+
                 </div>
 
                 <div class="searchContainer">
