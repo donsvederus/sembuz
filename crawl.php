@@ -4,6 +4,31 @@ include("classes/DomDocumentParser.php");
 
 $alreadyCrawled = array();
 $crawling = array();
+$alreadyFoundImages = array();
+
+function linkExists($url) {
+    global $con;
+
+    $query = $con->prepare("SELECT * FROM sites WHERE url = :url");
+
+    $query->bindParam(":url", $url);
+    $query->execute();
+    return $query->rowCount() != 0;
+}
+
+function insertImage($url, $src, $alt, $title) {
+    global $con;
+
+    $query = $con->prepare("INSERT INTO images(siteUrl, imageUrl, alt, title) 
+                            VALUES(:siteUrl, :imageUrl, :alt, :title)");
+
+    $query->bindParam(":siteUrl", $url);
+    $query->bindParam(":imageUrl", $src);
+    $query->bindParam(":alt", $alt);
+    $query->bindParam(":title", $title);
+
+    return $query->execute();
+}
 
 function insertLink($url, $title, $description, $keywords) {
     global $con;
@@ -41,6 +66,8 @@ function createLink($src, $url) {
 
 function getDetails($url) {
 
+    global $alreadyFoundImages;
+
     $parser = new DomDocumentParser($url);
         
     $titleArray = $parser->getTitleTags();
@@ -74,7 +101,34 @@ function getDetails($url) {
     $description = str_replace("\n", "", $description);
     $keywords = str_replace("\n", "", $keywords);
 
-    insertLink($url, $title, $description, $keywords);
+    if(linkExists($url)) {
+        echo "$url already exists<br>";
+    } else if(insertLink($url, $title, $description, $keywords)) {
+        echo "SUCCESS: $url<br>";
+    } else {
+        echo "ERROR: Failed to insert $url<br>";
+    }
+
+    $imageArray = $parser->getImages();
+    foreach($imageArray as $image) {
+        $src = $image->getAttribute("src");
+        $alt = $image->getAttribute("alt");
+        $title = $image->getAttribute("title");
+
+        if(!$title && !$alt){
+            continue;
+        }
+
+        $src = createLink($src, $url);
+
+        if(!in_array($src, $alreadyFoundImages)) {
+            $alreadyFoundImages[] = $src;
+
+            insertImage($url, $src, $alt, $title);
+        }
+
+    }
+
 }
 
 
@@ -104,9 +158,6 @@ function followLinks($url) {
 
             getDetails($href);
         }
-
-        else return;
-
     }
 
     array_shift($crawling);

@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+include("classes/SiteResultsProvider.php");
 
     $term = isset($_GET["term"]) ? $_GET["term"] : exit("You must enter a search term.");
 
@@ -66,8 +67,18 @@ include("config.php");
                 </ul>  
 
             </div>
+        </div>
+
+        <div class="mainResultsSection">
+
+            <?php
+                $resultsProvider = new SiteResultsProvider($con);
+
+                echo $resultsProvider->getNumResults($term);
+            ?>
 
         </div>
+
 
     </div> 
 </body>
