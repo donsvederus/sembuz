@@ -37,7 +37,7 @@ include("classes/SiteResultsProvider.php");
 
                     <form action="search.php" method="GET">
                         <div class="searchBarContainer">
-                            <input type="text" class="searchBox" name="term">
+                            <input type="text" class="searchBox" name="term" value="<?php echo $term; ?>">
                             <button class="searchButton">
                                 <img src="images/search.png">
                             </button>
