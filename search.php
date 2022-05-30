@@ -69,7 +69,7 @@ include("classes/SiteResultsProvider.php");
             </div>
         </div>
 
-        <div class="mainResultsSection">
+        <div class="mainResultsSection siteResults">
 
             <?php
                 $resultsProvider = new SiteResultsProvider($con);
