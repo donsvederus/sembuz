@@ -18,6 +18,7 @@ include("classes/SiteResultsProvider.php");
     <title>Document</title>
     <link rel="shortcut icon" type="image" href="images/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -144,6 +145,7 @@ include("classes/SiteResultsProvider.php");
 
 
 
-    </div> 
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
