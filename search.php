@@ -70,11 +70,11 @@ include("classes/SiteResultsProvider.php");
             </div>
         </div>
 
-        <div class="mainResultsSection siteResults">
+        <div class="mainResultsSection">
 
             <?php
                 $resultsProvider = new SiteResultsProvider($con);
-                $pageLimit = 10;
+                $pageLimit = 20;
 
                 
 
@@ -86,6 +86,23 @@ include("classes/SiteResultsProvider.php");
             ?>
 
         </div>
+
+        <div class="paginationContainer">
+
+            <div class="pageButtons">
+
+                <div class="pageNumberContainer">
+                    <img src="images/pageStart.jpg" alt="">
+                </div>
+
+                <div class="pageNumberContainer">
+                    <img src="images/pageEnd.jpg" alt="">
+                </div>
+                
+            </div>
+
+        </div>
+
 
 
     </div> 
