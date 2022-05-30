@@ -74,7 +74,7 @@ include("classes/SiteResultsProvider.php");
 
             <?php
                 $resultsProvider = new SiteResultsProvider($con);
-                $pageLimit = 20;
+                $pageSize = 10;
 
                 
 
@@ -82,7 +82,7 @@ include("classes/SiteResultsProvider.php");
 
                 echo "<p class='resultsCount'>$numResults results found</p>";
 
-                echo $resultsProvider->getResultsHtml(1, $pageLimit, $term);
+                echo $resultsProvider->getResultsHtml(1, $pageSize, $term);
             ?>
 
         </div>
@@ -94,6 +94,41 @@ include("classes/SiteResultsProvider.php");
                 <div class="pageNumberContainer">
                     <img src="images/pageStart.jpg" alt="">
                 </div>
+
+                <?php
+
+                $pagesToShow = 10;
+                $numPages = ceil($numResults / $pageSize);
+                $pagesLeft = min($pagesToShow, $numPages);
+
+                $currentPage = $page - floor($pagesToShow / 2);
+
+                if($currentPage < 1) {
+                    $currentPage = 1;
+                }
+
+                while($pagesLeft != 0) {
+
+                    if ($currentPage == $page) {
+                    echo "<div class='pageNumberContainer'>
+                    <img src='images/pageSelected.jpg' alt=''>
+                    <span class='pageNumber'>$currentPage</span>
+                    </div>";                        
+                    } else {
+                    echo "<div class='pageNumberContainer'>
+                    <a href='search.php?term=$term&type=$type&page=$currentPage'>
+                    <img src='images/page.jpg' alt=''>
+                    <span class='pageNumber'>$currentPage</span>
+                    </a>
+                    </div>";
+                    }
+
+
+                    $currentPage++;
+                    $pagesLeft--;
+                }
+
+                ?>
 
                 <div class="pageNumberContainer">
                     <img src="images/pageEnd.jpg" alt="">
