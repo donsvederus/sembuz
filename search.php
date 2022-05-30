@@ -5,6 +5,7 @@ include("classes/SiteResultsProvider.php");
     $term = isset($_GET["term"]) ? $_GET["term"] : exit("You must enter a search term.");
 
     $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
 ?>
 
@@ -73,6 +74,7 @@ include("classes/SiteResultsProvider.php");
 
             <?php
                 $resultsProvider = new SiteResultsProvider($con);
+                $pageLimit = 10;
 
                 
 
@@ -80,7 +82,7 @@ include("classes/SiteResultsProvider.php");
 
                 echo "<p class='resultsCount'>$numResults results found</p>";
 
-                echo $resultsProvider->getResultsHtml(1, 20, $term);
+                echo $resultsProvider->getResultsHtml(1, $pageLimit, $term);
             ?>
 
         </div>
